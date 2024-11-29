@@ -28,9 +28,6 @@ export default async function handler(req, res) {
   ctx.font = "24px sans-serif";
   ctx.textAlign = "center";
 
-  if (!/[.!?]$/.test(random_quote)) {
-    random_quote += ".";
-  }
 
   ctx.fillText(`"${random_quote}"`, canvas.width / 2, 100);
 
