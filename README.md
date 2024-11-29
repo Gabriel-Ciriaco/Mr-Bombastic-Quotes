@@ -15,6 +15,7 @@ Type the following in your Markdown:
 ```
 
 Then, it will render it like this:
+
 ![Mr. Bombastic quote](https://mr-bombastic-quotes.vercel.app/api/generate-quotes)
 
 Each render shows a different sentence!.
