@@ -4,18 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
-  <title>Mr Bombastic</title>
+  <title>Mr Bombastic Quote</title>
 </head>
 <body>
-  <div class="mr-bombastic">
-    <p id="sentence"></p>
-    <div class="quote-info">
-      <img class="image" src="./mr-bombastic.png" alt="Mr. Bombastic">
-      <span class="said-by">~Mr-Bombastic</span>
-    </div>
-  </div>
-</body>
 
-<script src="./quotes.js"></script>
+<div id="canvas-container">
+  <canvas id="quote-canvas"></canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="quotes.js"></script>
 <script src="./script.js"></script>
+</body>
 </html>
