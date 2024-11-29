@@ -47,4 +47,14 @@ image.onload = function () {
 
   const imgElement = document.getElementById("quote-image");
   imgElement.src = canvas.toDataURL("image/png");
+
+  download_image(canvas);
 };
+
+function download_image(canvas)
+{
+  let link = document.createElement("a");
+  link.href = canvas.toDataURL("image/png");
+  link.download = "quote-image.png";
+  link.click();
+}
