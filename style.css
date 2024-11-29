@@ -16,4 +16,5 @@ body {
 
 canvas {
   border: 1px solid #ecf0f1; /* Optional border for the canvas */
+  display: none;
 }

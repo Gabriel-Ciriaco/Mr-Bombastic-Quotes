@@ -42,7 +42,9 @@ image.onload = function () {
   const imgY = 100;
   ctx.drawImage(image, imgX, imgY, 200, 200);
 
-  // Draw the "said by" text
   ctx.font = "italic 18px Arial";
   ctx.fillText("~ said by Mr. Bombastic", canvasWidth / 2, imgY + 200);
+
+  const imgElement = document.getElementById("quote-image");
+  imgElement.src = canvas.toDataURL("image/png");
 };
