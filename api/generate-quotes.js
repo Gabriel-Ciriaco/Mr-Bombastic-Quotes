@@ -1,9 +1,12 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
-import { promises as fs } from "fs";
 
 export default async function handler(req, res) {
-  const file = await fs.readFile(process.cwd() + '/api/quotes.json', 'utf-8');
-  const quotes = JSON.parse(file);
+  const response = await fetch(
+    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/api/quotes.json"
+  );
+
+  const quotes = await response.json();
+
   let day_quote = Math.floor(Math.random() * quotes.length);
 
   const randomQuote = quotes[day_quote];
