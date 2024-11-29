@@ -3,7 +3,7 @@ import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 export default async function handler(req, res) {
   const font_url =
     "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/public/OpenSans-Regular.ttf"; // Replace with your actual font URL
-  const font_response = await fetch(font_url);
+  const font_response = await fetch(font_url, { cache: "no-store"} );
   const font_buffer = await font_response.arrayBuffer();
 
   GlobalFonts.register(Buffer.from(font_buffer), "sans-serif")
