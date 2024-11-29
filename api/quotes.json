@@ -1,4 +1,4 @@
-var QUOTES = [
+[
   "Entrei na rua dela com meu carro rebaixado",
   "No meu porta-malas, escutando forró pesado",
   "Eu logo percebi quando ela olhou pra mim",
@@ -123,5 +123,5 @@ var QUOTES = [
   "Diz que é verdade, que tem saudade",
   "Que ainda você pensa muito em mim",
   "Diz que é verdade, que tem saudade",
-  "Que ainda você quer viver pra mim",
-];
+  "Que ainda você quer viver pra mim"
+]

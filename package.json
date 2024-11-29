@@ -1,0 +1,10 @@
+{
+  "name": "mr-bombastic-quotes",
+  "version": "1.0.0",
+  "description": "Famous music lyrics said by Mr-Bombastic...",
+  "author": "Gabriel Ciriaco de Carvalho",
+  "license": "ISC",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.64"
+  }
+}
