@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   GlobalFonts.register(Buffer.from(font_buffer), "sans-serif")
 
   const response = await fetch(
-    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/api/quotes.json");
+    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/api/quotes.json");
 
   const quotes = await response.json();
 
