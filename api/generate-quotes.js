@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   let day_quote = Math.floor(Math.random() * quotes.length);
 
-  const randomQuote = quotes[day_quote];
+  const random_quote = quotes[day_quote];
 
   const canvas = createCanvas(600, 400);
   const ctx = canvas.getContext("2d");
@@ -18,9 +18,10 @@ export default async function handler(req, res) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "#ecf0f1";
-  ctx.font = "24px Arial";
+  ctx.font = "24px sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText(`"${randomQuote}"`, canvas.width / 2, 100);
+
+  ctx.fillText(`"${random_quote}"`, canvas.width / 2, 100);
 
   const image = await loadImage(
     "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/public/mr-bombastic.png"
