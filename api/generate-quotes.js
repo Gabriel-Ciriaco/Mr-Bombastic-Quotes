@@ -8,9 +8,9 @@ export default async function handler(req, res) {
 
   GlobalFonts.register(Buffer.from(font_buffer), "sans-serif")
 
-  const response = await fetch("https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/api/quotes.json", { headers: {"Accept": "application/json"} });
+  let response = await fetch("https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/api/quotes.json", { headers: {"Accept": "application/json"} });
 
-  const quotes = await response.json();
+  let quotes = await response.json();
 
   let day_quote = Math.floor(Math.random() * quotes.length);
 
