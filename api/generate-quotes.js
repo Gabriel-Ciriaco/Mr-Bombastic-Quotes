@@ -1,7 +1,9 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
-import quotes from "./quotes.json";
+import { promises as fs } from "fs";
 
 export default async function handler(req, res) {
+  const file = await fs.readFile(process.cwd() + '/api/quotes.json', 'utf-8');
+  const quotes = JSON.parse(file);
   let day_quote = Math.floor(Math.random() * quotes.length);
 
   const randomQuote = quotes[day_quote];
