@@ -1,15 +1,22 @@
-import { createCanvas, loadImage } from "@napi-rs/canvas";
+import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 
 export default async function handler(req, res) {
+  const font_url =
+    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/public/OpenSans-Regular.ttf"; // Replace with your actual font URL
+  const font_response = await fetch(font_url);
+  const font_buffer = await font_response.arrayBuffer();
+
+  GlobalFonts.register(Buffer.from(font_buffer), "sans-serif")
+
   const response = await fetch(
-    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/api/quotes.json"
+    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/api/quotes.json"
   );
 
   const quotes = await response.json();
 
   let day_quote = Math.floor(Math.random() * quotes.length);
 
-  const random_quote = quotes[day_quote];
+  let random_quote = quotes[day_quote];
 
   const canvas = createCanvas(600, 400);
   const ctx = canvas.getContext("2d");
@@ -21,12 +28,14 @@ export default async function handler(req, res) {
   ctx.font = "24px sans-serif";
   ctx.textAlign = "center";
 
+  if (!/[.!?]$/.test(random_quote)) {
+    random_quote += ".";
+  }
+
   ctx.fillText(`"${random_quote}"`, canvas.width / 2, 100);
 
-  console.log(random_quote);
-
   const image = await loadImage(
-    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/public/mr-bombastic.png"
+    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/public/mr-bombastic.png"
   );
 
   ctx.drawImage(image, (canvas.width - 200) / 2, 100, 200, 200);
