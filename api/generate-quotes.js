@@ -26,7 +26,9 @@ export default async function handler(req, res) {
   ctx.font = "italic 18px Arial";
   ctx.fillText("~ said by Mr. Bombastic", canvas.width / 2, 320);
 
-  const base64Image = canvas.toDataURL("image/png");
+  const buffer = canvas.toBuffer("image/png");
 
-  res.status(200).json({ imageUrl: base64Image });
+  res.setHeader("Content-Type", "image/png");
+
+  res.status(200).send(buffer);
 }
