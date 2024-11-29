@@ -26,7 +26,6 @@ export default async function handler(req, res) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "#ecf0f1";
-  ctx.font = "24px sans-serif";
   ctx.textAlign = "center";
 
 
