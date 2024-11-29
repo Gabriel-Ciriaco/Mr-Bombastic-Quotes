@@ -3,15 +3,13 @@ import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
 export default async function handler(req, res) {
   const font_url =
     "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/public/OpenSans-Regular.ttf"; // Replace with your actual font URL
-  const font_response = await fetch(font_url, { cache: "no-store"} );
+  const font_response = await fetch(font_url);
   const font_buffer = await font_response.arrayBuffer();
 
   GlobalFonts.register(Buffer.from(font_buffer), "sans-serif")
 
   const response = await fetch(
-    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/api/quotes.json",
-{ cache: "no-store" }
-  );
+    "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/main/api/quotes.json");
 
   const quotes = await response.json();
 
@@ -26,6 +24,7 @@ export default async function handler(req, res) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "#ecf0f1";
+  ctx.font = "24px sans-serif";
   ctx.textAlign = "center";
 
 
