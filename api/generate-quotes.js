@@ -23,6 +23,8 @@ export default async function handler(req, res) {
 
   ctx.fillText(`"${random_quote}"`, canvas.width / 2, 100);
 
+  console.log(random_quote);
+
   const image = await loadImage(
     "https://raw.githubusercontent.com/Gabriel-Ciriaco/Mr-Bombastic-Quotes/refs/heads/main/public/mr-bombastic.png"
   );
